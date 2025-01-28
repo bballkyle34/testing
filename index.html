@@ -8,7 +8,6 @@
     <!-- SEO Optimization: Open Graph Meta Tags -->
     <meta property="og:title" content="Your Future - Futuristic Blog">
     <meta property="og:description" content="Explore cutting-edge research and futuristic ideas shaping tomorrow.">
-    <meta property="og:image" content="https://imgur.com/GNXv4kG.jpg">
     <meta property="og:url" content="https://yourwebsite.com/">
     <meta property="og:type" content="website">
     <!-- Canonical Link -->
@@ -234,11 +233,11 @@
         /* Mobile Optimization */
         @media (max-width: 768px) {
             header {
-                height: 250px; /* Reduced height for mobile */
+                height: 200px; /* Reduced height for mobile */
             }
 
             .banner-content h1 {
-                font-size: clamp(2rem, 6vw, 3rem);
+                font-size: clamp(2rem, 6vw, 3rem); /* Smaller font size for mobile */
             }
 
             nav {
@@ -260,6 +259,11 @@
 
             iframe {
                 height: 300px; /* Smaller height for mobile */
+            }
+
+            /* Simplify Three.js Animation for Mobile */
+            #hero-canvas {
+                display: none; /* Hide the 3D animation on mobile */
             }
         }
 
@@ -287,6 +291,203 @@
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
+
+        /* New Post Form Styling */
+        #new-post-form {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        #post-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        #post-form input,
+        #post-form textarea {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            background-color: var(--background-color);
+            color: var(--primary-color);
+        }
+
+        #post-form button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #post-form button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Posts Container Styling */
+        #posts-container {
+            margin-top: 2rem;
+        }
+
+        #posts-container article {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        #posts-container article h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        #posts-container article p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        #posts-container article small {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            opacity: 0.7;
+        }
+
+        /* New Post Button Styling */
+        #new-post-button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            margin-bottom: 1rem;
+        }
+
+        #new-post-button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Password Modal Styling */
+        #password-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            z-index: 1001;
+        }
+
+        #password-modal input {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        #password-modal button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #password-modal button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* Overlay Styling */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        /* User Account Modal Styling */
+        #user-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            z-index: 1001;
+        }
+
+        #user-modal input {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        #user-modal button {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #user-modal button:hover {
+            background-color: var(--hover-color);
+        }
+
+        /* User Account Button Styling */
+        #user-account-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            z-index: 1000;
+        }
+
+        /* Close button for modals */
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
@@ -297,6 +498,8 @@
         <div class="banner-content">
             <h1>Kyle's Interests</h1>
         </div>
+        <!-- Three.js Canvas -->
+        <canvas id="hero-canvas"></canvas>
     </header>
 
     <!-- Navigation Bar -->
@@ -310,13 +513,30 @@
 
     <!-- Main Content -->
     <main role="main">
+        <!-- Home Tab -->
         <div id="home" class="tab-content active" data-aos="fade-up">
             <article>
                 <h2>Home</h2>
                 <p>Explore cutting-edge research and futuristic ideas shaping tomorrow.</p>
+                <!-- New Post Button -->
+                <button id="new-post-button" onclick="showPasswordModal()">New Post</button>
+                <!-- New Post Form -->
+                <div id="new-post-form" style="display: none;">
+                    <h2>Create a New Post</h2>
+                    <form id="post-form">
+                        <label for="post-title">Title:</label>
+                        <input type="text" id="post-title" required>
+                        <label for="post-content">Content:</label>
+                        <textarea id="post-content" rows="4" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+                <!-- Posts Container -->
+                <div id="posts-container"></div>
             </article>
         </div>
 
+        <!-- Starbase Tab -->
         <div id="starbase" class="tab-content" data-aos="fade-up">
             <article>
                 <h2>Starbase 24/7</h2>
@@ -358,10 +578,35 @@
     <!-- Dark/Light Mode Toggle Button -->
     <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
 
+    <!-- User Account Button -->
+    <button id="user-account-button" onclick="showUserModal()">👤</button>
+
+    <!-- Password Modal -->
+    <div id="password-modal">
+        <span class="close-modal" onclick="closeModal('password-modal')">&times;</span>
+        <h2>Enter Password</h2>
+        <input type="password" id="password-input" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <!-- User Account Modal -->
+    <div id="user-modal">
+        <span class="close-modal" onclick="closeModal('user-modal')">&times;</span>
+        <h2>Sign Up / Login</h2>
+        <input type="text" id="username-input" placeholder="Username">
+        <input type="password" id="user-password-input" placeholder="Password">
+        <button onclick="handleUserAccount()">Submit</button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
     <!-- Particles.js from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
     <!-- AOS JS from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Trigger page load animation
@@ -434,6 +679,37 @@
                     console.error('Error fetching NFL scores:', error);
                     document.getElementById('nfl-scores').innerHTML = '<li>Failed to load NFL scores. Please try again later.</li>';
                 });
+
+            // Initialize Three.js Scene
+            const heroCanvas = document.getElementById('hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Add a rotating cube
+            const geometry = new THREE.BoxGeometry();
+            const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            camera.position.z = 5;
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                cube.rotation.x += 0.01;
+                cube.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
         });
 
         // Error Handling for YouTube Embed
@@ -488,6 +764,128 @@
             } else {
                 body.setAttribute('data-theme', 'light');
             }
+        }
+
+        // Array to store posts
+        let posts = [];
+
+        // Password for exclusive access
+        const PASSWORD = "5953"; // Change this to your desired password
+
+        // Show password modal
+        function showPasswordModal() {
+            document.getElementById('password-modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Check password
+        function checkPassword() {
+            const input = document.getElementById('password-input').value;
+            if (input === PASSWORD) {
+                document.getElementById('password-modal').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                showPostForm();
+            } else {
+                alert("Incorrect password. Access denied.");
+            }
+        }
+
+        // Show new post form
+        function showPostForm() {
+            const form = document.getElementById('new-post-form');
+            form.style.display = 'block';
+        }
+
+        // Handle form submission
+        document.getElementById('post-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get input values
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+
+            // Create a new post object
+            const newPost = {
+                id: Date.now(), // Unique ID based on timestamp
+                title: title,
+                content: content,
+                timestamp: new Date().toLocaleString() // Add a timestamp
+            };
+
+            // Add the new post to the array
+            posts.unshift(newPost); // Add to the beginning of the array (most recent first)
+
+            // Clear the form
+            document.getElementById('post-form').reset();
+            document.getElementById('new-post-form').style.display = 'none';
+
+            // Render posts
+            renderPosts();
+        });
+
+        // Render posts
+        function renderPosts() {
+            const postsContainer = document.getElementById('posts-container');
+
+            // Clear existing posts
+            postsContainer.innerHTML = '';
+
+            // Loop through posts and create HTML for each
+            posts.forEach(post => {
+                const postElement = document.createElement('article');
+                postElement.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p>${post.content}</p>
+                    <small>Posted on: ${post.timestamp}</small>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+        }
+
+        // User Account Functions
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        function showUserModal() {
+            document.getElementById('user-modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function handleUserAccount() {
+            const username = document.getElementById('username-input').value;
+            const password = document.getElementById('user-password-input').value;
+
+            if (!username || !password) {
+                alert("Please enter a username and password.");
+                return;
+            }
+
+            const user = users.find(u => u.username === username);
+
+            if (user) {
+                if (user.password === password) {
+                    alert("Login successful!");
+                    // Save user preferences
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                } else {
+                    alert("Incorrect password.");
+                }
+            } else {
+                // Create new user
+                const newUser = { username, password, theme: 'dark', favorites: [] };
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('currentUser', JSON.stringify(newUser));
+                alert("Account created successfully!");
+            }
+
+            document.getElementById('user-modal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Function to close modals
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </body>
