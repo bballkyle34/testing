@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore futuristic content, research themes, and more on Your Future - a space for innovation and inspiration.">
+    <meta name="description"
+        content="Explore futuristic content, research themes, and more on Your Future - a space for innovation and inspiration.">
     <meta name="theme-color" content="#0d0d2b">
     <!-- SEO Optimization: Open Graph Meta Tags -->
     <meta property="og:title" content="Your Future - Futuristic Blog">
@@ -13,7 +15,7 @@
     <!-- Canonical Link -->
     <link rel="canonical" href="https://yourwebsite.com/">
     <!-- Favicon -->
-    <link rel="icon" href="/path-to-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://yourwebsite.com/favicon.ico">
     <title>Kyle's Interests</title>
 
     <!-- Google Font -->
@@ -22,6 +24,108 @@
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
+        /* Animated Border for the YouTube Video */
+        /* Animated Border for the YouTube Video */
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 5px;
+            /* Padding for the border */
+            border-radius: 15px;
+            /* Rounded corners */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            /* Glowing shadow effect */
+            animation: borderGlow 2s infinite alternate;
+            /* Animation for glowing border */
+            width: 100%;
+            /* Make wrapper responsive */
+            max-width: 960px;
+            /* Set a maximum width for large screens */
+            height: 0;
+            /* Set height to 0 to maintain aspect ratio */
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio (height / width * 100) */
+            margin: 0 auto;
+            /* Center the video */
+        }
+
+        .scores-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            animation: borderGlow 2s infinite alternate;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .scores-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            padding: 15px;
+        }
+
+        .scores-container h3 {
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .scores-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .scores-list li {
+            background: rgba(0, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+
+        /* Animated glowing border */
+        @keyframes borderGlow {
+            0% {
+                border: 2px solid rgba(0, 255, 255, 0.5);
+                /* Light blue glow */
+            }
+
+            50% {
+                border: 2px solid rgba(0, 255, 255, 1);
+                /* Stronger glow */
+            }
+
+            100% {
+                border: 2px solid rgba(0, 255, 255, 0.5);
+                /* Light blue glow */
+            }
+        }
+
+        /* Optional: Ensure iframe fills the div */
+        .video-wrapper iframe {
+            position: absolute;
+            /* Position the iframe inside the wrapper */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            /* Rounded corners for iframe */
+        }
+
+
+
         /* Root variables for easy theme management */
         :root {
             --background-color: #0d0d2b;
@@ -55,17 +159,27 @@
             overflow-x: hidden;
             position: relative;
             transition: opacity 0.5s ease-in-out, background 0.5s ease;
-            opacity: 0; /* Initial opacity for page load animation */
+            opacity: 0;
+            /* Initial opacity for page load animation */
         }
 
         body.loaded {
-            opacity: 1; /* Set opacity to 1 when page has loaded */
+            opacity: 1;
+            /* Set opacity to 1 when page has loaded */
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Smooth scrolling */
@@ -83,36 +197,13 @@
             z-index: -1;
         }
 
-        /* Header styling */
-        header {
+        /* Three.js Canvas Container */
+        #hero-canvas-container {
             position: relative;
-            height: 400px; /* Default height for desktop */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #0d0d2b, #1a1a40, #00ffff);
-            background-size: 200% 200%;
-            animation: gradientShift 10s ease infinite;
-            overflow: hidden;
-            cursor: pointer; /* Add pointer cursor to indicate clickability */
-        }
-
-        .banner-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            color: var(--accent-color);
-            text-transform: uppercase;
-            margin: 0;
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
-            }
-            100% {
-                text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
-            }
+            height: 200px;
+            /* Reduced height for the header */
+            cursor: pointer;
+            /* Indicate clickability */
         }
 
         /* Navigation bar */
@@ -145,7 +236,8 @@
         }
 
         .nav-links a:hover {
-            transform: scale(1.1); /* Subtle zoom effect on hover */
+            transform: scale(1.1);
+            /* Subtle zoom effect on hover */
         }
 
         .nav-links a.active,
@@ -169,19 +261,30 @@
 
         .tab-content {
             display: none;
+            /* Hide all tabs by default */
             opacity: 0;
-            transform: translateY(20px); /* Initial position for fade-in */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .tab-content.active {
-            display: block;
+            display: block !important;
+            /* Ensure active tab is always visible */
             opacity: 1;
-            transform: translateY(0); /* Bring to view */
+            transform: translateY(0);
         }
 
+        /* Ensure the Home tab is visible by default */
+        #home {
+            display: block;
+            opacity: 1;
+        }
+
+
+
         article h2 {
-            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size */
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            /* Responsive font size */
             color: var(--accent-color);
             text-transform: uppercase;
             margin-bottom: 1rem;
@@ -190,7 +293,8 @@
         }
 
         article p {
-            font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            /* Responsive font size */
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
@@ -230,42 +334,63 @@
             z-index: 1000;
         }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
-            header {
-                height: 200px; /* Reduced height for mobile */
+            #hero-canvas-container {
+                height: 120px;
+                /* Further reduce height for mobile */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
             }
 
-            .banner-content h1 {
-                font-size: clamp(2rem, 6vw, 3rem); /* Smaller font size for mobile */
+            #hero-canvas {
+                width: 100%;
+                height: 100%;
             }
 
-            nav {
-                padding: 0.5rem 1rem; /* Smaller padding for mobile */
+            #tesseract-canvas {
+                width: 80px;
+                /* Reduce size for smaller screens */
+                height: 80px;
             }
 
             .nav-links {
-                gap: 0.5rem; /* Reduced gap for mobile */
+                gap: 0.5rem;
+                /* Reduce spacing */
             }
 
             .nav-links a {
-                font-size: 1rem; /* Smaller font size for mobile */
-                padding: 0.5rem; /* Smaller padding for mobile */
-            }
-
-            main {
-                padding: 1rem; /* Smaller padding for mobile */
-            }
-
-            iframe {
-                height: 300px; /* Smaller height for mobile */
-            }
-
-            /* Simplify Three.js Animation for Mobile */
-            #hero-canvas {
-                display: none; /* Hide the 3D animation on mobile */
+                font-size: 0.9rem;
+                /* Adjust font size */
+                padding: 0.4rem 0.8rem;
+                /* Adjust padding */
             }
         }
+
+        @media (max-width: 768px) {
+            #new-post-form {
+                width: 90%;
+                margin: auto;
+                padding: 10px;
+            }
+
+            #post-form input,
+            #post-form textarea {
+                width: 100%;
+            }
+
+            #posts-container article {
+                padding: 10px;
+            }
+
+            #posts-container button {
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+        }
+
+
 
         /* Sports Scores Styling */
         .scores-container {
@@ -291,6 +416,61 @@
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
+
+        /* Glowing Live Indicator */
+        .live-indicator {
+            color: red;
+            animation: glow 1s infinite alternate;
+        }
+
+        .tab-content {
+            display: none;
+            /* Hide all tabs by default */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block !important;
+            /* Show only active tab */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+            }
+
+            to {
+                text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+            }
+        }
+
+        /* Final Indicator */
+        .final-indicator {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Style for the Tesseract Animation */
+        #tesseract-canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
+            z-index: 5;
+            /* Ensure it's above the background but below interactions */
+            pointer-events: none;
+            /* Allows clicks to pass through to the header */
+        }
+
+
 
         /* New Post Form Styling */
         #new-post-form {
@@ -423,57 +603,6 @@
             z-index: 1000;
         }
 
-        /* User Account Modal Styling */
-        #user-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: var(--secondary-color);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            z-index: 1001;
-        }
-
-        #user-modal input {
-            padding: 0.5rem;
-            border-radius: 5px;
-            border: 1px solid var(--accent-color);
-            background-color: var(--background-color);
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            width: 100%;
-        }
-
-        #user-modal button {
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #user-modal button:hover {
-            background-color: var(--hover-color);
-        }
-
-        /* User Account Button Styling */
-        #user-account-button {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background-color: var(--accent-color);
-            color: var(--background-color);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            z-index: 1000;
-        }
 
         /* Close button for modals */
         .close-modal {
@@ -490,403 +619,389 @@
         }
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
 
-    <!-- Header Banner -->
-    <header onclick="resetToHome()">
-        <div class="banner-content">
-            <h1>Kyle's Interests</h1>
-        </div>
-        <!-- Three.js Canvas -->
+    <!-- Three.js Animation Container -->
+    <div id="hero-canvas-container" onclick="resetToHome()">
         <canvas id="hero-canvas"></canvas>
-    </header>
+        <canvas id="tesseract-canvas"></canvas>
+    </div>
 
     <!-- Navigation Bar -->
     <nav role="navigation">
         <div class="nav-links">
             <a href="#home" class="active" onclick="switchTab(event, 'home')" aria-label="Home">Home</a>
-            <a href="#starbase" onclick="switchTab(event, 'starbase')" aria-label="Starbase 24/7">Starbase 24/7</a>
-            <a href="#sports" onclick="switchTab(event, 'sports')" aria-label="Sports">Sports</a>
+
+
         </div>
     </nav>
 
     <!-- Main Content -->
     <main role="main">
-        <!-- Home Tab -->
+        <!-- Sports Tab -->
+        <!-- Home Tab (formerly Sports) -->
         <div id="home" class="tab-content active" data-aos="fade-up">
             <article>
-                <h2>Home</h2>
-                <p>Explore cutting-edge research and futuristic ideas shaping tomorrow.</p>
-                <!-- New Post Button -->
-                <button id="new-post-button" onclick="showPasswordModal()">New Post</button>
-                <!-- New Post Form -->
-                <div id="new-post-form" style="display: none;">
-                    <h2>Create a New Post</h2>
-                    <form id="post-form">
-                        <label for="post-title">Title:</label>
-                        <input type="text" id="post-title" required>
-                        <label for="post-content">Content:</label>
-                        <textarea id="post-content" rows="4" required></textarea>
-                        <button type="submit">Submit</button>
-                    </form>
+                <h2>Live Scores</h2>
+                <div class="scores-wrapper">
+                    <h2>Sports Scores</h2>
+                    <div class="scores-container">
+                        <div>
+                            <h3>NBA Scores</h3>
+                            <ul id="nba-scores" class="scores-list"></ul>
+                        </div>
+                        <div>
+                            <h3>NFL Scores</h3>
+                            <ul id="nfl-scores" class="scores-list"></ul>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
                 <!-- Posts Container -->
                 <div id="posts-container"></div>
+
+
+
+
+
+                <p id="iframe-error" style="display: none; color: red;">Failed to load the video. Please try again
+                    later.</p>
             </article>
         </div>
 
-        <!-- Starbase Tab -->
-        <div id="starbase" class="tab-content" data-aos="fade-up">
-            <article>
-                <h2>Starbase 24/7</h2>
-                <!-- Lazy Loading and Error Handling for YouTube Embed -->
-                <iframe 
-                    data-src="https://www.youtube.com/embed/mhJRzQsLZGg?autoplay=1&mute=1" 
-                    allowfullscreen
-                    title="Starbase 24/7 Live Stream"
-                    onerror="handleIframeError(this)"
-                    loading="lazy">
-                </iframe>
-                <p id="iframe-error" style="display: none; color: red;">Failed to load the video. Please try again later.</p>
-            </article>
+
+
+        <!-- Footer -->
+        <footer role="contentinfo">
+            <p>&copy; 2025 Futuristic Blog. All rights reserved.</p>
+        </footer>
+
+        <!-- Dark/Light Mode Toggle Button -->
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
+
+
+        <!-- Password Modal -->
+        <div id="password-modal" style="display: none;">
+            <h2>Enter Password</h2>
+            <input type="password" id="password-input" placeholder="Enter Password" onkeydown="handleEnterKey(event)">
+            <button onclick="checkPassword()">Submit</button>
+            <button onclick="closeModal()">Cancel</button>
         </div>
 
-        <!-- Sports Tab -->
-        <div id="sports" class="tab-content" data-aos="fade-up">
-            <article>
-                <h2>Sports</h2>
-                <div class="scores-container">
-                    <div>
-                        <h3>NBA Scores</h3>
-                        <ul id="nba-scores" class="scores-list"></ul>
-                    </div>
-                    <div>
-                        <h3>NFL Scores</h3>
-                        <ul id="nfl-scores" class="scores-list"></ul>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </main>
 
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <p>&copy; 2025 Futuristic Blog. All rights reserved.</p>
-    </footer>
 
-    <!-- Dark/Light Mode Toggle Button -->
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
 
-    <!-- User Account Button -->
-    <button id="user-account-button" onclick="showUserModal()">👤</button>
+        <!-- Particles.js from CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+        <!-- AOS JS from CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+        <!-- Three.js from CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script>
 
-    <!-- Password Modal -->
-    <div id="password-modal">
-        <span class="close-modal" onclick="closeModal('password-modal')">&times;</span>
-        <h2>Enter Password</h2>
-        <input type="password" id="password-input" placeholder="Password">
-        <button onclick="checkPassword()">Submit</button>
-    </div>
-
-    <!-- User Account Modal -->
-    <div id="user-modal">
-        <span class="close-modal" onclick="closeModal('user-modal')">&times;</span>
-        <h2>Sign Up / Login</h2>
-        <input type="text" id="username-input" placeholder="Username">
-        <input type="password" id="user-password-input" placeholder="Password">
-        <button onclick="handleUserAccount()">Submit</button>
-    </div>
-
-    <!-- Overlay -->
-    <div id="overlay"></div>
-
-    <!-- Particles.js from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-    <!-- AOS JS from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-    <!-- Three.js from CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Trigger page load animation
-            document.body.classList.add('loaded');
-
-            // Custom Particles.js Configuration
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 150, density: { enable: true, value_area: 1000 } },
-                    color: { value: "#00ffff" },
-                    shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
-                    opacity: { value: 0.7, random: true },
-                    size: { value: 4, random: true },
-                    move: { enable: true, speed: 5, direction: "none", out_mode: "bounce" }
-                },
-                interactivity: {
-                    events: {
-                        onhover: { enable: true, mode: "bubble" },
-                        onclick: { enable: true, mode: "push" }
-                    },
-                    modes: {
-                        bubble: { distance: 200, size: 6, duration: 2 },
-                        push: { particles_nb: 4 }
-                    }
-                },
-                retina_detect: true
-            });
-
-            // Initialize AOS
-            AOS.init({ duration: 1000 });
-
-            // Lazy Load YouTube Embed
-            const iframe = document.querySelector('iframe[data-src]');
-            if (iframe) {
-                iframe.src = iframe.dataset.src;
-            }
-
-            // Fetch NBA Scores
-            fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard')
-                .then(response => response.json())
-                .then(data => {
-                    const nbaScoresList = document.getElementById('nba-scores');
-                    data.events.forEach(event => {
-                        const homeTeam = event.competitions[0].competitors.find(team => team.homeAway === 'home');
-                        const awayTeam = event.competitions[0].competitors.find(team => team.homeAway === 'away');
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${awayTeam.team.abbreviation} ${awayTeam.score} - ${homeTeam.score} ${homeTeam.team.abbreviation}`;
-                        nbaScoresList.appendChild(listItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching NBA scores:', error);
-                    document.getElementById('nba-scores').innerHTML = '<li>Failed to load NBA scores. Please try again later.</li>';
-                });
-
-            // Fetch NFL Scores
-            fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard')
-                .then(response => response.json())
-                .then(data => {
-                    const nflScoresList = document.getElementById('nfl-scores');
-                    data.events.forEach(event => {
-                        const homeTeam = event.competitions[0].competitors.find(team => team.homeAway === 'home');
-                        const awayTeam = event.competitions[0].competitors.find(team => team.homeAway === 'away');
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${awayTeam.team.abbreviation} ${awayTeam.score} - ${homeTeam.score} ${homeTeam.team.abbreviation}`;
-                        nflScoresList.appendChild(listItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching NFL scores:', error);
-                    document.getElementById('nfl-scores').innerHTML = '<li>Failed to load NFL scores. Please try again later.</li>';
-                });
-
-            // Initialize Three.js Scene
-            const heroCanvas = document.getElementById('hero-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-            // Add a rotating cube
-            const geometry = new THREE.BoxGeometry();
-            const material = new THREE.MeshBasicMaterial({ color: 0x00ffff, wireframe: true });
-            const cube = new THREE.Mesh(geometry, material);
-            scene.add(cube);
-
-            camera.position.z = 5;
-
-            // Animation loop
-            function animate() {
-                requestAnimationFrame(animate);
-                cube.rotation.x += 0.01;
-                cube.rotation.y += 0.01;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        });
-
-        // Error Handling for YouTube Embed
-        function handleIframeError(iframe) {
-            const errorMessage = document.getElementById('iframe-error');
-            iframe.style.display = 'none';
-            errorMessage.style.display = 'block';
-        }
-
-        // Tab switching logic
-        function switchTab(event, tabId) {
-            event.preventDefault();
-
-            // Remove 'active' class from all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-
-            // Add 'active' class to the selected tab and nav link
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-
-        // Reset to Home
-        function resetToHome() {
-            // Remove 'active' class from all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-
-            // Remove 'active' class from all nav links
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-
-            // Set 'active' class to home tab and link
-            document.getElementById('home').classList.add('active');
-            document.querySelector('a[href="#home"]').classList.add('active');
-
-            // Scroll to the top of the page
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Dark/Light Mode Toggle
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            if (currentTheme === 'light') {
-                body.setAttribute('data-theme', 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-            }
-        }
-
-        // Array to store posts
-        let posts = [];
-
-        // Password for exclusive access
-        const PASSWORD = "5953"; // Change this to your desired password
-
-        // Show password modal
-        function showPasswordModal() {
-            document.getElementById('password-modal').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        // Check password
-        function checkPassword() {
-            const input = document.getElementById('password-input').value;
-            if (input === PASSWORD) {
-                document.getElementById('password-modal').style.display = 'none';
-                document.getElementById('overlay').style.display = 'none';
-                showPostForm();
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
-        }
-
-        // Show new post form
-        function showPostForm() {
-            const form = document.getElementById('new-post-form');
-            form.style.display = 'block';
-        }
-
-        // Handle form submission
-        document.getElementById('post-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Get input values
-            const title = document.getElementById('post-title').value;
-            const content = document.getElementById('post-content').value;
-
-            // Create a new post object
-            const newPost = {
-                id: Date.now(), // Unique ID based on timestamp
-                title: title,
-                content: content,
-                timestamp: new Date().toLocaleString() // Add a timestamp
-            };
-
-            // Add the new post to the array
-            posts.unshift(newPost); // Add to the beginning of the array (most recent first)
-
-            // Clear the form
-            document.getElementById('post-form').reset();
-            document.getElementById('new-post-form').style.display = 'none';
-
-            // Render posts
-            renderPosts();
-        });
-
-        // Render posts
-        function renderPosts() {
-            const postsContainer = document.getElementById('posts-container');
-
-            // Clear existing posts
-            postsContainer.innerHTML = '';
-
-            // Loop through posts and create HTML for each
-            posts.forEach(post => {
-                const postElement = document.createElement('article');
-                postElement.innerHTML = `
-                    <h2>${post.title}</h2>
-                    <p>${post.content}</p>
-                    <small>Posted on: ${post.timestamp}</small>
-                `;
-                postsContainer.appendChild(postElement);
-            });
-        }
-
-        // User Account Functions
-        let users = JSON.parse(localStorage.getItem('users')) || [];
-
-        function showUserModal() {
-            document.getElementById('user-modal').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
-
-        function handleUserAccount() {
-            const username = document.getElementById('username-input').value;
-            const password = document.getElementById('user-password-input').value;
-
-            if (!username || !password) {
-                alert("Please enter a username and password.");
-                return;
-            }
-
-            const user = users.find(u => u.username === username);
-
-            if (user) {
-                if (user.password === password) {
-                    alert("Login successful!");
-                    // Save user preferences
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                } else {
-                    alert("Incorrect password.");
+            document.addEventListener("DOMContentLoaded", function () {
+                // Initialize Three.js Scene for the Tesseract
+                const tesseractCanvas = document.getElementById('tesseract-canvas');
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({canvas: tesseractCanvas, alpha: true});
+                function updateTesseractSize() {
+                    const screenWidth = window.innerWidth;
+                    const newSize = screenWidth < 768 ? 80 : 150; // Adjust size for mobile
+                    renderer.setSize(newSize, newSize);
                 }
-            } else {
-                // Create new user
-                const newUser = { username, password, theme: 'dark', favorites: [] };
-                users.push(newUser);
-                localStorage.setItem('users', JSON.stringify(users));
-                localStorage.setItem('currentUser', JSON.stringify(newUser));
-                alert("Account created successfully!");
+
+                window.addEventListener("resize", updateTesseractSize);
+                updateTesseractSize(); // Call initially to set correct size
+
+
+                // Create a Wireframe Cube (Tesseract Representation)
+                const geometry = new THREE.BoxGeometry();
+                const edges = new THREE.EdgesGeometry(geometry);
+                const material = new THREE.LineBasicMaterial({color: 0x00ffff});
+
+                // Combine edges to form a cube
+                const tesseract = new THREE.LineSegments(edges, material);
+                scene.add(tesseract);
+
+                camera.position.z = 3;
+
+                // Animation Loop
+                function animateTesseract() {
+                    requestAnimationFrame(animateTesseract);
+                    tesseract.rotation.x += 0.02;
+                    tesseract.rotation.y += 0.02;
+                    renderer.render(scene, camera);
+                }
+                animateTesseract();
+            });
+
+
+            document.addEventListener("DOMContentLoaded", function () {
+                // Trigger page load animation
+                document.body.classList.add('loaded');
+
+                // Custom Particles.js Configuration
+                particlesJS('particles-js', {
+                    particles: {
+                        number: {value: 150, density: {enable: true, value_area: 1000}},
+                        color: {value: "#00ffff"},
+                        shape: {type: "circle", stroke: {width: 0, color: "#000000"}},
+                        opacity: {value: 0.7, random: true},
+                        size: {value: 4, random: true},
+                        move: {enable: true, speed: 5, direction: "none", out_mode: "bounce"}
+                    },
+                    interactivity: {
+                        events: {
+                            onhover: {enable: true, mode: "bubble"},
+                            onclick: {enable: true, mode: "push"}
+                        },
+                        modes: {
+                            bubble: {distance: 200, size: 6, duration: 2},
+                            push: {particles_nb: 4}
+                        }
+                    },
+                    retina_detect: true
+                });
+
+                // Initialize AOS
+                AOS.init({duration: 1000});
+
+                // Lazy Load YouTube Embed
+                const iframe = document.querySelector('iframe[data-src]');
+                if (iframe) {
+                    iframe.src = iframe.dataset.src;
+                }
+
+                // Fetch NBA Scores
+                fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard')
+                    .then(response => response.json())
+                    .then(data => {
+                        const nbaScoresList = document.getElementById('nba-scores');
+                        nbaScoresList.innerHTML = ''; // Clear existing scores
+
+                        data.events.forEach(event => {
+                            const competition = event.competitions ? event.competitions[0] : null;
+                            if (!competition) return;
+
+                            const homeTeam = competition.competitors.find(team => team.homeAway === 'home');
+                            const awayTeam = competition.competitors.find(team => team.homeAway === 'away');
+
+                            if (!homeTeam || !awayTeam) return;
+
+                            const homeScore = homeTeam.score || '0';
+                            const awayScore = awayTeam.score || '0';
+                            const gameLink = event.links?.[0]?.href || `https://www.espn.com/nba/game?gameId=${event.id}`;
+
+                            const status = event.status?.type || {};
+                            let gameStatus = '';
+
+                            if (status.state === 'pre') {
+                                const gameTime = new Date(event.date);
+                                const localTime = gameTime.toLocaleString();
+                                gameStatus = `Starts at ${localTime}`;
+                            } else if (status.state === 'in') {
+
+
+                            } else if (status.state === 'in') {
+                                gameStatus = '<span class="live-indicator">LIVE</span>'; // Glowing Live Indicator
+                            } else if (status.state === 'post') {
+                                gameStatus = '<span class="final-indicator">Final</span>'; // Final Indicator
+                            } else {
+                                gameStatus = 'Unknown Status';
+                            }
+
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `
+                                            <a href="${gameLink}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                ${awayTeam.team.abbreviation} ${awayScore} - ${homeScore} ${homeTeam.team.abbreviation} (${gameStatus})
+                                            </a>
+                                        `;
+                            nbaScoresList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching NBA scores:', error);
+                        document.getElementById('nba-scores').innerHTML = '<li>Failed to load NBA scores.</li>';
+                    });
+
+
+                // Fetch NFL Scores
+                fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard')
+                    .then(response => response.json())
+                    .then(data => {
+                        const nflScoresList = document.getElementById('nfl-scores');
+                        nflScoresList.innerHTML = ''; // Clear existing scores
+
+                        data.events.forEach(event => {
+                            const competition = event.competitions ? event.competitions[0] : null;
+                            if (!competition) return;
+
+                            const homeTeam = competition.competitors.find(team => team.homeAway === 'home');
+                            const awayTeam = competition.competitors.find(team => team.homeAway === 'away');
+
+                            if (!homeTeam || !awayTeam) return;
+
+                            const homeScore = homeTeam.score || '0';
+                            const awayScore = awayTeam.score || '0';
+                            const gameLink = event.links?.[0]?.href || `https://www.espn.com/nfl/game?gameId=${event.id}`;
+
+                            const status = event.status?.type || {};
+                            let gameStatus = '';
+
+                            if (status.state === 'pre') {
+                                const gameTime = new Date(event.date);
+                                const localTime = gameTime.toLocaleString();
+                                gameStatus = `Starts at ${localTime}`;
+                            } else if (status.state === 'in') {
+
+
+                            } else if (status.state === 'in') {
+                                gameStatus = '<span class="live-indicator">LIVE</span>'; // Glowing Live Indicator
+                            } else if (status.state === 'post') {
+                                gameStatus = '<span class="final-indicator">Final</span>'; // Final Indicator
+                            } else {
+                                gameStatus = 'Unknown Status';
+                            }
+
+                            const listItem = document.createElement('li');
+                            listItem.innerHTML = `
+                                            <a href="${gameLink}" target="_blank" style="text-decoration: none; color: inherit;">
+                                                ${awayTeam.team.abbreviation} ${awayScore} - ${homeScore} ${homeTeam.team.abbreviation} (${gameStatus})
+                                            </a>
+                                        `;
+                            nflScoresList.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching NFL scores:', error);
+                        document.getElementById('nfl-scores').innerHTML = '<li>Failed to load NFL scores.</li>';
+                    });
+
+
+                // Initialize Three.js Scene
+                const heroCanvas = document.getElementById('hero-canvas');
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({canvas: heroCanvas, alpha: true});
+                renderer.setSize(window.innerWidth, window.innerHeight);
+
+                // Add a rotating cube
+                const geometry = new THREE.BoxGeometry();
+                const material = new THREE.MeshBasicMaterial({color: 0x00ffff, wireframe: true});
+                const cube = new THREE.Mesh(geometry, material);
+                scene.add(cube);
+
+                camera.position.z = 5;
+
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    cube.rotation.x += 0.01;
+                    cube.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                });
+            });
+
+            // Error Handling for YouTube Embed
+            function handleIframeError(iframe) {
+                const errorMessage = document.getElementById('iframe-error');
+                iframe.style.display = 'none';
+                errorMessage.style.display = 'block';
             }
 
-            document.getElementById('user-modal').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
+            // Tab switching logic
+            function switchTab(event, tabId) {
+                event.preventDefault();
 
-        // Function to close modals
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
-    </script>
+                // Stop all playing media before switching tabs
+                stopAllMedia();
+
+                // Hide all tabs and remove active class
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.style.display = "none";
+                    tab.classList.remove('active');
+                });
+
+                // Remove active class from all nav links
+                document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+
+                // Get the new active tab
+                const newTab = document.getElementById(tabId);
+                if (!newTab) {
+                    console.error("Tab not found:", tabId);
+                    return;
+                }
+
+                // Make new tab visible
+                newTab.style.display = "block";
+                setTimeout(() => newTab.classList.add('active'), 50); // Smooth transition
+                newTab.style.opacity = 0;
+
+                setTimeout(() => {
+                    newTab.style.opacity = 1;
+                }, 200);
+
+                // Highlight the clicked nav link
+                event.target.classList.add('active');
+            }
+
+
+            function stopAllMedia() {
+                // Stop all videos
+                document.querySelectorAll("video").forEach(video => {
+                    video.pause();
+                    video.currentTime = 0; // Reset video to start
+                });
+
+                // Stop all audio
+                document.querySelectorAll("audio").forEach(audio => {
+                    audio.pause();
+                    audio.currentTime = 0; // Reset audio to start
+                });
+
+                // Mute any iframes (YouTube, etc.)
+                document.querySelectorAll("iframe").forEach(iframe => {
+                    iframe.src = iframe.src; // Reload iframe to stop media
+                });
+            }
+
+
+            // Reset to Home
+            function resetToHome() {
+                location.reload(); // Fully reloads the page, stopping audio
+            }
+
+
+            // Dark/Light Mode Toggle
+            function toggleTheme() {
+                const body = document.body;
+                const currentTheme = body.getAttribute('data-theme');
+                if (currentTheme === 'light') {
+                    body.setAttribute('data-theme', 'dark');
+                } else {
+                    body.setAttribute('data-theme', 'light');
+                }
+            }
+
+
+
+
+        </script>
 </body>
+
 </html>
